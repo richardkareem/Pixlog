@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pixlog</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_dashboard">Dasbord</string>
+    <string name="title_notifications">Notifikasi</string>
+    <string name="welcome_to">Selamat Datang Di</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">Masuk</string>
+    <string name="already_have_an_account">Sudah Mempunyai Akun?</string>
+    <string name="register">Daftar</string>
+    <string name="username">Username</string>
+    <string name="logout">Keluar</string>
+    <string name="name">Richard Kareem</string>
+    <string name="location">-</string>
+    <string name="loremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>
+    <string name="updatedDate">5/8/2021</string>
+    <string name="imageContentDescription">ImageContent</string>
+    <string name="imageAvatarDescrption">ImageAvatar</string>
+    <string name="description">Deskripsi</string>
+    <string name="reset">ULANGI</string>
+    <string name="post">POST</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery" translatable="false">Galeri</string>
+    <string name="don_t_have_an_account">Belum Mempunyai Akun?</string>
+    <plurals name="years_ago">
+        <item quantity="one">%d tahun lalu</item>
+        <item quantity="other">%d tahun lalu</item>
+    </plurals>
+    <plurals name="months_ago">
+        <item quantity="one">%d bulan lalu</item>
+        <item quantity="other">%d bulan lalu</item>
+    </plurals>
+    <plurals name="weeks_ago">
+        <item quantity="one">%d minggu lalu</item>
+        <item quantity="other">%d minggu lalu</item>
+    </plurals>
+    <plurals name="days_ago">
+        <item quantity="one">%d hari lalu</item>
+        <item quantity="other">%d hari lalu</item>
+    </plurals>
+    <plurals name="hours_ago">
+        <item quantity="one">%d jam lalu</item>
+        <item quantity="other">%d jam lalu</item>
+    </plurals>
+    <plurals name="minutes_ago">
+        <item quantity="one">%d menit lalu</item>
+        <item quantity="other">%d menit lalu</item>
+    </plurals>
+    <string name="just_now">Baru saja</string>
+    <string name="invalid_date">Tanggal tidak valid</string>
+    <string name="data_empty">Data Tidak Tersedia</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="recent_story">Cerita</string>
+    <string name="error_email_text">Email Tidak Valid</string>
+    <string name="error_password_text">Password minimal 8 karakter</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+</resources>

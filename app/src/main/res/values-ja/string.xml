@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pixlog</string>
+    <string name="title_home">ホーム</string>
+    <string name="title_dashboard">ダッシュボード</string>
+    <string name="title_notifications">通知</string>
+    <string name="welcome_to">ようこそ</string>
+    <string name="email">メール</string>
+    <string name="password">パスワード</string>
+    <string name="login">ログイン</string>
+    <string name="already_have_an_account">既にアカウントをお持ちですか？</string>
+    <string name="register">登録</string>
+    <string name="username">ユーザー名</string>
+    <string name="logout">ログアウト</string>
+    <string name="name">リチャード・カリーム</string>
+    <string name="location">-</string>
+    <string name="loremIpsum">ロレム・イプサムは、印刷および組版業界のダミーテキストです</string>
+    <string name="updatedDate">5/8/2021</string>
+    <string name="imageContentDescription">画像コンテンツ</string>
+    <string name="imageAvatarDescrption">アバター画像</string>
+    <string name="description">説明</string>
+    <string name="reset">リセット</string>
+    <string name="post">投稿</string>
+    <string name="camera">カメラ</string>
+    <string name="gallery">ギャラリー</string>
+    <string name="don_t_have_an_account">アカウントを作成しますか？</string>
+    <plurals name="years_ago">
+        <item quantity="one">%d年前</item>
+        <item quantity="other">%d年前</item>
+    </plurals>
+    <plurals name="months_ago">
+        <item quantity="one">%dヶ月前</item>
+        <item quantity="other">%dヶ月前</item>
+    </plurals>
+    <plurals name="weeks_ago">
+        <item quantity="one">%d週間前</item>
+        <item quantity="other">%d週間前</item>
+    </plurals>
+    <plurals name="days_ago">
+        <item quantity="one">%d日前</item>
+        <item quantity="other">%d日前</item>
+    </plurals>
+    <plurals name="hours_ago">
+        <item quantity="one">%d時間前</item>
+        <item quantity="other">%d時間前</item>
+    </plurals>
+    <plurals name="minutes_ago">
+        <item quantity="one">%d分前</item>
+        <item quantity="other">%d分前</item>
+    </plurals>
+    <string name="just_now">たった今</string>
+    <string name="invalid_date">無効な日付</string>
+    <string name="data_empty">データが空です</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="recent_story">話</string>
+    <string name="error_email_text">メールアドレスが正しくありません</string>
+    <string name="error_password_text">8文字以上で入力してください</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+</resources>

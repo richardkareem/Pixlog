@@ -1,0 +1,113 @@
+# Built application files
+*.apk
+*.ap_
+*.aab
+*.aar
+
+# Files for the build system
+.gradle/
+build/
+app/build/
+app/.externalNativeBuild/
+.cxx/
+
+# Local configuration files (IDE specific)
+.idea/
+*.iml
+*.iws
+*.ipr
+local.properties
+.DS_Store # macOS specific
+captures/
+.external_build_id
+.gradle-tooling/
+
+# Android Studio generated files
+app/src/main/assets/
+app/src/main/res/raw/
+app/src/main/res/xml/
+app/src/main/res/drawable/
+app/src/main/res/layout/
+app/src/main/res/values/
+app/src/main/res/mipmap/
+app/src/main/res/navigation/
+app/src/main/res/font/
+app/src/main/res/color/
+app/src/main/res/anim/
+app/src/main/res/animator/
+app/src/main/res/interpolator/
+app/src/main/res/transition/
+app/src/main/res/menu/
+app/src/main/res/layout-land/
+app/src/main/res/layout-sw600dp/
+app/src/main/res/layout-v21/
+app/src/main/res/layout-v23/
+app/src/main/res/layout-v26/
+app/src/main/res/layout-v28/
+app/src/main/res/layout-v31/
+
+# External libraries
+libs/
+bin/
+
+# Crashlytics/Fabric
+crashlytics-build.properties
+
+# Android Studio caches
+.idea/workspace.xml
+.idea/libraries/
+.idea/modules.xml
+.idea/runConfigurations.xml
+
+# Gradle caches
+.gradle/
+*.log
+*.bak
+*.swp
+*.swo
+*.swn
+*.swr
+*.swl
+*.swm
+*.swp
+*.swo
+*.swn
+*.swr
+*.swl
+*.swm
+*.swp
+*.swo
+*.swn
+*.swr
+*.swl
+*.swm
+
+# Kotlin specific
+*.kpt
+
+# Testing
+!**/src/test/resources/
+!**/src/androidTest/resources/
+
+# Keystore files
+*.jks
+*.keystore
+
+# Other
+proguard-rules.pro
+
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
