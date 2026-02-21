@@ -23,28 +23,7 @@ captures/
 .gradle-tooling/
 
 # Android Studio generated files
-app/src/main/assets/
-app/src/main/res/raw/
-app/src/main/res/xml/
-app/src/main/res/drawable/
-app/src/main/res/layout/
-app/src/main/res/values/
-app/src/main/res/mipmap/
-app/src/main/res/navigation/
-app/src/main/res/font/
-app/src/main/res/color/
-app/src/main/res/anim/
-app/src/main/res/animator/
-app/src/main/res/interpolator/
-app/src/main/res/transition/
-app/src/main/res/menu/
-app/src/main/res/layout-land/
-app/src/main/res/layout-sw600dp/
-app/src/main/res/layout-v21/
-app/src/main/res/layout-v23/
-app/src/main/res/layout-v26/
-app/src/main/res/layout-v28/
-app/src/main/res/layout-v31/
+app/build
 
 # External libraries
 libs/

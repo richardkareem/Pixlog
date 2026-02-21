@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Pixlog</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="logout">Keluar</string>
+    <string name="name">Richard Kareem</string>
+    <string name="location">-</string>
+    <string name="loremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>
+    <string name="updatedDate">5/8/2021</string>
+    <string name="imageContentDescription">ImageContent</string>
+    <string name="imageAvatarDescrption">ImageAvatar</string>
+    <string name="description">Description</string>
+    <string name="reset">RESET</string>
+    <string name="post">POST</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <plurals name="years_ago">
+        <item quantity="one">%d year ago</item>
+        <item quantity="other">%d years ago</item>
+    </plurals>
+    <plurals name="months_ago">
+        <item quantity="one">%d month ago</item>
+        <item quantity="other">%d months ago</item>
+    </plurals>
+    <plurals name="weeks_ago">
+        <item quantity="one">%d week ago</item>
+        <item quantity="other">%d weeks ago</item>
+    </plurals>
+    <plurals name="days_ago">
+        <item quantity="one">%d day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
+    <plurals name="hours_ago">
+        <item quantity="one">%d hour ago</item>
+        <item quantity="other">%d hours ago</item>
+    </plurals>
+    <plurals name="minutes_ago">
+        <item quantity="one">%d minute ago</item>
+        <item quantity="other">%d minutes ago</item>
+    </plurals>
+    <string name="just_now">Just now</string>
+    <string name="invalid_date">Invalid date</string>
+    <string name="data_empty">Data Empty</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="recent_story">Story</string>
+    <string name="error_email_text">Email not valid</string>
+    <string name="error_password_text">At least 8 length characters</string>
+    <string name="use_location">Location</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="end_of_page_reached">End of page reached</string>
+    <string name="list_story">List Story</string>
+</resources>
