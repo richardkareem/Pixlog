@@ -16,10 +16,15 @@ import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import com.richard.pixlog.BuildConfig
 import com.richard.pixlog.R
+import retrofit2.HttpException
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
+import java.io.IOException
 import java.io.InputStream
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar

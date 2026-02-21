@@ -23,11 +23,11 @@ class DashboardViewModel(
     private val _result = MutableLiveData<Result<UploadResponse>>()
     val result = _result
 
-    fun uploadStory(file: MultipartBody.Part, requestBody: RequestBody){
+    fun uploadStory(file: MultipartBody.Part, requestBody: RequestBody, lat: Double? = null, lon: Double? = null){
         _result.value = Result.Loading
         viewModelScope.launch {
             try {
-                val response = repository.uploadStory(file, requestBody)
+                val response = repository.uploadStory(file, requestBody, lat, lon)
                 if(response.error){
                     _result.value = Result.Error(response.message)
                 }else{

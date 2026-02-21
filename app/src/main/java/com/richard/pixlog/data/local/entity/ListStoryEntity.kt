@@ -1,4 +1,4 @@
-package com.richard.pixlog.data.remote.response
+package com.richard.pixlog.data.local.entity
 
 import android.os.Parcelable
 import androidx.room.Entity
@@ -6,18 +6,8 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
-data class StoryResponse (
-    @field:SerializedName("error")
-    val error: Boolean,
-    @field:SerializedName("message")
-    val message: String,
-    @field:SerializedName("listStory")
-    val listStory: List<ListStory>
-
-)
-@Parcelize
 @Entity(tableName = "story")
-data class ListStory (
+data class ListStoryEntity (
     @PrimaryKey
     @field:SerializedName("id")
     val id: String,
@@ -33,4 +23,5 @@ data class ListStory (
     val lat: Double? = null,
     @field:SerializedName("lon")
     val lon: Double? = null,
-): Parcelable
+)
+

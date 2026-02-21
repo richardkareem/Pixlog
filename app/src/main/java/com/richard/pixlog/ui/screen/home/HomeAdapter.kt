@@ -11,17 +11,17 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.richard.pixlog.data.remote.response.ListStory
+import com.richard.pixlog.data.local.entity.ListStoryEntity
 import com.richard.pixlog.databinding.CardHomeBinding
 import com.richard.pixlog.ui.screen.detailStory.DetailStoryActivity
 import com.richard.pixlog.utils.formatTimeAgo
 
-class HomeAdapter : PagingDataAdapter<ListStory, HomeAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class HomeAdapter : PagingDataAdapter<ListStoryEntity, HomeAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     // binding to component that already created
     class MyViewHolder(val binding: CardHomeBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(story: ListStory) {
+        fun bind(story: ListStoryEntity) {
             Log.d("HomeAdapter", "bind: $story")
             binding.tvName.text = story.name
             Glide.with(itemView.context)
@@ -47,7 +47,17 @@ class HomeAdapter : PagingDataAdapter<ListStory, HomeAdapter.MyViewHolder>(DIFF_
                     Pair(binding.tvLocation, "location")
                 )
                 val intent = Intent(itemView.context, DetailStoryActivity::class.java)
-                intent.putExtra("Story", story)
+                // Convert ListStoryEntity to ListStory for intent
+                val storyResponse = com.richard.pixlog.data.remote.response.ListStory(
+                    id = story.id,
+                    name = story.name,
+                    description = story.description,
+                    photoUrl = story.photoUrl,
+                    createdAt = story.createdAt,
+                    lat = story.lat,
+                    lon = story.lon
+                )
+                intent.putExtra("Story", storyResponse)
                 itemView.context.startActivity(intent, optionsCompat.toBundle())
             }
         }
@@ -69,12 +79,12 @@ class HomeAdapter : PagingDataAdapter<ListStory, HomeAdapter.MyViewHolder>(DIFF_
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListStory>() {
-            override fun areItemsTheSame(oldItem: ListStory, newItem: ListStory): Boolean {
-                return oldItem == newItem
+         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListStoryEntity>() {
+            override fun areItemsTheSame(oldItem: ListStoryEntity, newItem: ListStoryEntity): Boolean {
+                return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: ListStory, newItem: ListStory): Boolean {
+            override fun areContentsTheSame(oldItem: ListStoryEntity, newItem: ListStoryEntity): Boolean {
                 return oldItem.id == newItem.id
             }
         }

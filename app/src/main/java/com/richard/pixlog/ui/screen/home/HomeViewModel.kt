@@ -4,13 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.richard.pixlog.data.remote.response.ListStory
+import com.richard.pixlog.data.local.entity.ListStoryEntity
 import com.richard.pixlog.data.repository.PixlogRepository
 
 class HomeViewModel(
     private val repository: PixlogRepository,
 ) : ViewModel() {
 
-    val getStory: LiveData<PagingData<ListStory>> =
+    val getStory: LiveData<PagingData<ListStoryEntity>> =
         repository.getAllStory().cachedIn(viewModelScope)
 }

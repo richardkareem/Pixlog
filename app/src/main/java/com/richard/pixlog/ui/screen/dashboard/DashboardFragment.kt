@@ -11,11 +11,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.registerForActivityResult
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.richard.pixlog.R
 import com.richard.pixlog.data.repository.Result
 import com.richard.pixlog.databinding.FragmentDashboardBinding
@@ -31,6 +34,10 @@ class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
     private var currentImageUrl : Uri? = null
+
+    private var lat : Double? = null
+    private var lon : Double? = null
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private val requiredPermissionLauncher =
         registerForActivityResult(
@@ -64,6 +71,9 @@ class DashboardFragment : Fragment() {
         val dashboardViewModelFactory = DashboardViewModelFactory.getInstance(requireContext())
         val dashboardViewModel = ViewModelProvider(this, dashboardViewModelFactory)[DashboardViewModel::class.java]
 
+        // Initialize location services
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+
         // Setup toolbar back click
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
@@ -92,7 +102,7 @@ class DashboardFragment : Fragment() {
                             filename = imageFile.name,
                             requestFile
                         )
-                        dashboardViewModel.uploadStory(multipartyBody, descRequestBody)
+                        dashboardViewModel.uploadStory(multipartyBody, descRequestBody, lat, lon)
                     }
 
                 }
@@ -124,6 +134,26 @@ class DashboardFragment : Fragment() {
 
                     }
                 }
+            }
+        }
+
+                    //checkbox - Enable/disable location tracking
+        binding.checkBox.setOnClickListener {
+            if(binding.checkBox.isChecked){
+                // Request location permission and get current location
+                if (ContextCompat.checkSelfPermission(
+                        requireContext(),
+                        android.Manifest.permission.ACCESS_FINE_LOCATION
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    getCurrentLocation()
+                } else {
+                    requestPermissionLauncher.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
+                }
+            } else {
+                // Clear location data when checkbox is unchecked
+                lat = null
+                lon = null
             }
         }
 
@@ -192,8 +222,63 @@ class DashboardFragment : Fragment() {
         binding.btnReset.visibility = View.GONE
         currentImageUrl = null
         binding.edDescription.text?.clear()
+        
+        // Reset location if checkbox is unchecked
+        if (!binding.checkBox.isChecked) {
+            lat = null
+            lon = null
+        }
     }
 
+
+
+    // permission location
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                // If checkbox is checked, get current location coordinates
+                if (binding.checkBox.isChecked) {
+                    getCurrentLocation()
+                }
+            }
+        }
+
+    // Get current location coordinates
+    private fun getCurrentLocation() {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            try {
+                fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                    location?.let {
+                        lat = it.latitude
+                        lon = it.longitude
+                        
+                        // Show location info to user
+                        val locationText = "Location: can get location"
+                        Toast.makeText(requireContext(), locationText, Toast.LENGTH_LONG).show()
+                        
+                        // Log for debugging
+                        Log.d("DashboardFragment", "Location obtained: lat=$lat, lon=$lon")
+                    } ?: run {
+                        Toast.makeText(requireContext(), "Unable to get location. Please try again.", Toast.LENGTH_SHORT).show()
+                    }
+                }.addOnFailureListener { e ->
+                    Log.e("DashboardFragment", "Error getting location: ${e.message}")
+                    Toast.makeText(requireContext(), "Error getting location: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Log.e("DashboardFragment", "Exception getting location: ${e.message}")
+                Toast.makeText(requireContext(), "Exception getting location: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            requestPermissionLauncher.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+    }
 
 
     companion object{

@@ -4,6 +4,9 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
     //safe args
     id("androidx.navigation.safeargs")
+    //room
+    id("com.google.devtools.ksp")
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -40,12 +43,20 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
     buildFeatures {
         viewBinding = true
         buildConfig = true
     }
 }
+
+//kotlin{
+//    jvmToolchain(11)
+//    compilerOptions {
+//        optIn.add("kotlin.RequiresOptIn")
+//    }
+//}
 
 dependencies {
     //Glide buat foto
@@ -70,7 +81,21 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
+    // ui test espresso
+    androidTestImplementation(libs.espresso.intents) //IntentsTestRule
+    implementation(libs.androidx.espresso.idling.resource)
+
+    //test
+    androidTestImplementation(libs.androidx.core.testing) //InstantTaskExecutorRule
+    androidTestImplementation(libs.kotlinx.coroutines.test) //TestDispatcher
+
+    testImplementation(libs.androidx.core.testing) // InstantTaskExecutorRule
+    testImplementation(libs.kotlinx.coroutines.test) //TestDispatcher
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.androidx.core) // ApplicationProvider
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     //image circle
@@ -79,5 +104,11 @@ dependencies {
     implementation(libs.androidx.camera.camera2)
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
+    //paging
     implementation(libs.androidx.paging.runtime.ktx)
+    // room & paging live mediator
+    ksp(libs.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+
 }

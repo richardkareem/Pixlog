@@ -35,8 +35,8 @@ interface ApiService {
     @GET("stories")
     @Headers("Content-Type: application/json")
     suspend fun getAllStory(
-        @Query("page") page : Int ? = 1,
-        @Query("size") size : Int? = 10,
+        @Query("page") page : Int ? = null,
+        @Query("size") size : Int? = null,
         @Query("location") location : Int ? = 0
     ): StoryResponse
 
@@ -44,6 +44,8 @@ interface ApiService {
     @POST("stories")
     suspend fun addStory(
         @Part file: MultipartBody.Part,
-        @Part("description") description: RequestBody
+        @Part("description") description: RequestBody,
+        @Part("lat") lat: RequestBody? = null,
+        @Part("lon") lon: RequestBody? = null
     ): UploadResponse
 }
